@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slatebg text-slate-900 font-sans antialiased transition-colors duration-200 selection:bg-brand-500 selection:text-white;
+  }
+  
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-600;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/40 dark:border-slate-800/60 shadow-soft-md;
+}
+
+.glass-card {
+  @apply bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/70 dark:border-slate-800/80 hover:border-brand-500/40 transition-all duration-300;
+}
+
+.glass-nav {
+  @apply bg-white/85 dark:bg-slate-950/85 backdrop-blur-lg border-b border-slate-200/80 dark:border-slate-800/80;
+}
+
+/* Pulsing AI badge glow */
+@keyframes ai-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(46, 125, 50, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 152, 0, 0.6);
+  }
+}
+
+.ai-glow {
+  animation: ai-pulse 3s infinite;
+}
